@@ -16,6 +16,17 @@ app.get('/books', async(req,res)=>{
     }
 })
 
+// GET A Specific Book
+app.get('/books/:id',async(req,res)=>{
+    try {
+        const id = req.params;
+        console.log(id)
+        res.status(200).json(`book paisi id:`)
+    } catch (error) {
+        res.json({error: error.message})
+    }
+})
+
 // PLAN
 
 /**
