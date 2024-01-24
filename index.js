@@ -7,7 +7,14 @@ app.listen(PORT,()=>{
     console.log("server is running")
 })
 
-
+// GET ALL BOOKS
+app.get('/books', async(req,res)=>{
+    try {
+        res.status(200).json({message: "book paisi"})
+    } catch (error) {
+        res.json({error: error.message})
+    }
+})
 
 // PLAN
 
