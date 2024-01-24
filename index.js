@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 
 const PORT = 4770;
+// middleware
+app.use(express.json());
+
 
 app.listen(PORT,()=>{
     console.log("server is running")
@@ -22,6 +25,16 @@ app.get('/books/:id',async(req,res)=>{
         const id = req.params;
         console.log(id)
         res.status(200).json(`book paisi id:`)
+    } catch (error) {
+        res.json({error: error.message})
+    }
+})
+
+// POST Book
+app.post('/books',async(req,res)=>{
+    try {
+        const {name,description} = req.body;
+        res.status(201).json(`Book data created ${name} `)
     } catch (error) {
         res.json({error: error.message})
     }
