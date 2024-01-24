@@ -40,6 +40,29 @@ app.post('/books',async(req,res)=>{
     }
 })
 
+// delete a books
+app.delete('/books/:id',async(req,res)=>{
+    try {
+        const id = req.params;
+        res.status(200).json('Deleted')
+        
+    } catch (error) {
+        res.json({error: error.message})
+    }
+})
+// Update
+app.put('/books/:id',async(req,res)=>{
+    try {
+        const id = req.params;
+        const {name,description} = req.body;
+        res.status(200).json(`Book data Updated ${name} `)
+    } catch (error) {
+        res.json({error: error.message})
+    }
+})
+
+
+
 // PLAN
 
 /**
