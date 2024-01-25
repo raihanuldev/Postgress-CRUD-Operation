@@ -43,7 +43,7 @@ app.post('/books',async(req,res)=>{
             "INSERT INTO book (id,name,description) VALUES ($1,$2,$3) RETURNING *",
             [id,name,description]
         )
-        res.status(201).json({data: newBook})
+        res.status(201).json({data: newBook.rows})
     } catch (error) {
         res.json({error: error.message})
     }
