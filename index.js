@@ -1,4 +1,6 @@
 const express = require('express');
+const { v4: uuidv4 } = require('uuid');
+
 const app = express();
 
 const PORT = 4770;
@@ -30,11 +32,12 @@ app.get('/books/:id',async(req,res)=>{
     }
 })
 
-// POST Book
+// Create : POst Book
 app.post('/books',async(req,res)=>{
     try {
         const {name,description} = req.body;
-        res.status(201).json(`Book data created ${name} `)
+        const id = uuidv4();
+        res.status(201).json(`Book data created ${name}, ${id},${description} `)
     } catch (error) {
         res.json({error: error.message})
     }
