@@ -17,3 +17,5 @@ VALUES (101,"HELLO","THIS  NICHE BOOK");
 -- Read Collection 
 SELECT * FROM book;
 
+-- GET Specific Book
+"SELECT * FROM book WHERE id=$1",[id]
