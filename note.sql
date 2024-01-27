@@ -19,3 +19,6 @@ SELECT * FROM book;
 
 -- GET Specific Book
 "SELECT * FROM book WHERE id=$1",[id]
+
+-- delete Specific book
+"DELETE FROM book WHERE id=$1",[id]
