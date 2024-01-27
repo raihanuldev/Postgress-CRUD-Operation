@@ -65,9 +65,10 @@ app.delete('/books/:id',async(req,res)=>{
 // Update
 app.put('/books/:id',async(req,res)=>{
     try {
-        const id = req.params;
+        const {id} = req.params;
         const {name,description} = req.body;
-        res.status(200).json(`Book data Updated ${name} `)
+        const updatedBook = await pool.query("UPDATE book SET name=$1,description=$2 WHERE id=$3 RETURNING *",[name,description,id])
+        res.status(200).json({text: 'Book data Updated',data:updatedBook.rows})
     } catch (error) {
         res.json({error: error.message})
     }

@@ -22,3 +22,6 @@ SELECT * FROM book;
 
 -- delete Specific book
 "DELETE FROM book WHERE id=$1",[id]
+
+-- Update Book
+"UPDATE book SET name=$1,description=$2 WHERE id=$3 RETURNING *",[name,description,id]
