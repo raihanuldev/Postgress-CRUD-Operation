@@ -2,6 +2,22 @@
 PostgreSQL, often referred to as "Postgres," is a powerful open-source relational database management system (RDBMS). It is known for its reliability, extensibility, and compliance with SQL standards
 
 
+## Create Database 
+```mysql
+-- Create database ; write it on CMd
+
+CREATE DATABASE usersDB;
+
+-- create a Table
+CREATE TABLE book (
+    id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(20),
+    role VARCHAR(20),
+    description VARCHAR(250)
+);
+
+```
+
 ## GET ALL BOOK FROM book Collection
 
 ```javascript
